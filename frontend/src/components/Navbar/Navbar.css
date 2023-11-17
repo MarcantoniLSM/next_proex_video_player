@@ -1,0 +1,14 @@
+.navbar-main{
+    background-color: #121212;
+    color: #FFFFF8;
+}
+
+.material-symbols-outlined {
+    color: #1ED760;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    margin: 1rem;
+}

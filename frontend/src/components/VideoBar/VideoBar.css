@@ -1,0 +1,7 @@
+.videoBar{
+    position: fixed;
+    bottom: 0;
+    background-color: #121212;
+    width: 100vw;
+    color: #FFFFF8;
+}
