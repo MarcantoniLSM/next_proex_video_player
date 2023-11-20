@@ -12,3 +12,7 @@
     'opsz' 24;
     margin: 1rem;
 }
+
+.navbar-main input{
+    display: none;
+}
