@@ -1,30 +1,32 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import './Navbar.css'
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Navbar.css';
+import VideoBar from '../VideoBar/VideoBar'
 
-export default function Navbar(props){
+export default function Navbar(props) {
+  const [audioFile, setAudioFile] = useState(null);
 
-    const reproduct = (file) => {
-        
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      setAudioFile(URL.createObjectURL(file));
     }
+  };
 
-    //Função get do banco de dados a partir de um id passado como props ou o login passado como props
-        const handleFileChange = (event) => {
-            const selectedFile = event.target.files[0];
-    
-            // Faça algo com o arquivo selecionado, por exemplo, imprima o nome do arquivo
-            if (selectedFile) {
-                reproduct(selectedFile)
-            }
-        }
-
-    return(
-        <nav className="navbar-main navbar navbar-expand-lg ">
-            <span className="material-symbols-outlined">music_note</span>
-            <span>Olá, Marcantoni</span>
-            <input type="file" id="fileInput" onChange={handleFileChange} />
-            <button className="btn" onClick={() => document.getElementById('fileInput').click()}><span className="material-symbols-outlined">
-upload
-</span></button>
-        </nav>
-    )
+  return (
+    <nav className="navbar-main navbar navbar-expand-lg">
+      <span className="material-symbols-outlined">music_note</span>
+      <span>Olá, usuário</span>
+      <input type="file" id="fileInput" onChange={handleFileChange} />
+      <button
+        className="btn"
+        onClick={() => document.getElementById('fileInput').click()}
+      >
+        <span className="material-symbols-outlined">upload</span>
+      </button>
+      {audioFile ? ( <VideoBar source = {audioFile}/>
+      ) : (null)}
+    </nav>
+  );
 }

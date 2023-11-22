@@ -1,11 +1,11 @@
 'use client'
 import Navbar from '../components/Navbar/Navbar'
-import VideoBar from '../components/VideoBar/VideoBar'
 import FormCadastro from '../components/FormCadastro/FormCadastro'
 import {useState} from 'react'
+import Spotify from '../components/Spotify/Spotify'
 
 export default function Home() {
-  const [screen,setScreen] = useState(1)
+  const [screen,setScreen] = useState(0)
 
   const handleScreemMain = () =>{
     setScreen(1)
@@ -16,7 +16,7 @@ export default function Home() {
 
       {(screen == 0)?<FormCadastro handleScreen={handleScreemMain}/>:null}
       {(screen == 1)?<Navbar/>:null}
-      {(screen == 1)?<VideoBar/>:null}
+      {(screen == 1)?<Spotify/>:null}
 
     </main>
   )
